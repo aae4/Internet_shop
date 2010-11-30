@@ -18,3 +18,79 @@
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
+
+
+Processing UserSessionController#index (for 127.0.0.1 at 2010-11-30 21:28:20) [GET]
+
+
+ActionController::UnknownAction (No action responded to index. Actions: ):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUserSessions (20101130181805)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (5.1ms)[0m   [0mCREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101130181805')[0m
+Migrating to CreateUsers (20101130183409)
+  [4;35;1mSQL (5.5ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101130183409')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("user_sessions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
