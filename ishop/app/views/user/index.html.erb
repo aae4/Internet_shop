@@ -1,0 +1,15 @@
+<h1>Listing users</hq>
+<table>
+	<tr>
+		<th>Name</th>
+	</tr>
+
+<% for user in @user %>
+	<tr>
+		<td><%=h user.login %></td>
+		<td><%= link_to 'Show', user %></td>
+		<td><%= link_to 'Edit',edit_user_path(user) %></td>
+	</tr>
+<% end %>
+</table>
+<br />

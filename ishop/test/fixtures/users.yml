@@ -2,8 +2,8 @@
 
 one:
    login: MyString
-   hash_pass: MyString
+   password: MyString
 
 two:
    login: MyString
-   hash_pass: MyString
+   password: MyString

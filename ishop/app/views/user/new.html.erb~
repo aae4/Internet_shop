@@ -1,0 +1,30 @@
+<div class="users-form">
+<% form_for(@user) do |f| %>
+	<%= f.error_messages %>
+
+<fieldset>
+<legend>Enter data</legend>
+
+	<div>
+		<%= f.label :login %>:
+		<%= f.text_field :login %>
+	</div>
+
+	<div>
+		<%= f.label :password %>:
+		<%= f.password_field :password %>
+	</div>
+
+	<div>
+		<%= f.label :password_confirmation %>:
+		<%= f.password_field :password_confirmation %>
+	</div>
+
+	<div>
+		<%= f.submit "Create account", :class => "submit" %>
+	</div>
+
+</fieldset>
+
+<% end %>
+</div>
