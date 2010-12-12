@@ -1,0 +1,2 @@
+class PremissionController < ApplicationController
+end

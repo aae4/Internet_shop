@@ -3,6 +3,9 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
 		t.string :login
 		t.string :password
+		t.integer :login_count, :default => 0, :null=>false
+		t.datetime :created_at
+		t.datetime :last_login_at
 
     	t.timestamps
     end

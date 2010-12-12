@@ -1,33 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Registration</title>
+  <title>Edit</title>
   <%= stylesheet_link_tag 'login-box' %>
 </head>
 
 <body>
-
 	<div class="users-form">
 		<% form_for(@user) do |f| %>
 			<%= f.error_messages %>
 
 		<div id="new_view">
-<H1>Registration</H1>
-Crazy LJ Style
+		
+		<H1>Edit account information</H1>
+Crazy LJ Style 
 <br />
 <br />
 
 	<div id="login-box-name"> <%= f.label :login %>: </div>
 	<div id="login-box-field"> <%= f.text_field :login %></div>
-	<div id="login-box-name"> <%= f.label :password %>:</div>
-	<div id="login-box-field"> <%= f.password_field :password %> </div>
-	<div id="login-box-name"> <%= f.label :password_confirm %>:</div>
-  <div id="login-box-field"><%= f.password_field :password_confirmation %> </div>
 	<br />
 	<br />
-	<div style="margin-left:150px;"> <%= f.submit "Create account", :class => "submit" %> </div>
+	<div style="margin-left:150px;"> <%= f.submit "Apply changes", :class => "submit" %> </div>
 </div>
 </body>
 <% end %>

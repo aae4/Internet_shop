@@ -1,0 +1,31 @@
+# Methods added to this helper will be available to all templates in the application.
+module ApplicationHelper
+  def menu_item_tag(link, name)
+    return "<DIV class = \"menu-item\"><A HREF = \"#{link}\">#{name}</A></DIV>"
+  end
+
+  def used_controllers(user_class)
+      [UserController]
+  end
+
+  def menu(user_class)
+    used_controllers(user_class).inject([]) do |res, c|
+      cname = c.controller_name
+      unless cname == params[:controller]
+        si = c.menu_items(user_class).first
+        unless si.nil?
+          res << [url_for(:controller => cname, :action => si[0]), si[1]]
+        end
+      else
+        c.menu_items(user_class).each do |si|
+          res << [url_for(:controller => cname, :action => si[0]), si[1]]
+        end
+      end
+      res
+    end
+  end
+
+  def create_menu(user_class)
+    menu(user_class).map{ |i| menu_item_tag(*i) }.join("\n")
+  end
+end

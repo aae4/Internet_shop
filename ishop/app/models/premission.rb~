@@ -1,0 +1,2 @@
+class Premission < ActiveRecord::Base
+end

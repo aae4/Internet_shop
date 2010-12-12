@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Login</title>
+  <%= stylesheet_link_tag 'login-box' %>
+</head>
+
+<body>
+<div class="user-form">
+<div id="new_view">
+  <% form_tag do %>
+
+       <h1>Login</h1>
+       <div id="login-box-name">
+         <label for="login">Login:</label>
+         <div id="login-box-field"><%= text_field_tag :login, params[:login] %></div>
+       </div>
+       <div id="login-box-name">
+         <label for="password">Password:</label>
+         <div id="login-box-field"><%= password_field_tag :password, params[:password] %></div>
+       </div>
+	<br>
+	<br>
+       <div style="margin-left:150px;">
+         <%= submit_tag "Login" %>
+       </div>
+
+  <% end %>
+</div>
+</div>
+</body>
+</html>
+

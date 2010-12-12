@@ -1,0 +1,4 @@
+class UserSessionController < ApplicationController
+	def current_user
+		@current_user ||= (session[:user])
+end

@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+
 	def index
 		@user=User.find(:all, :order => :login)
 		respond_to do |format|
@@ -28,11 +29,22 @@ class UserController < ApplicationController
 			render :action => "new"
 		end
 	end
+	
+	def update
+		@user=User.find(params[:id])
+		respond_to do |format| 
+			if @user.update_attributes(params[:user])
+				flash[:notice]="#{@user.login} data was updated"
+				format.html {redirect_to(:action => 'index')}
+			else
+				format.html {render :action => "edit"}
+			end
+		end
+	end
 
 	def delete
 		@user=User.find(params[:id])
-		@user.destroy
-
+		@user.delete
 		respond_to do |format|
 			redirect_to(users_url)
 		end

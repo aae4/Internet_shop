@@ -1,15 +1,34 @@
-<h1>Listing users</hq>
-<table>
-	<tr>
-		<th>Name</th>
-	</tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<% for user in @user %>
-	<tr>
-		<td><%=h user.login %></td>
-		<td><%= link_to 'Show', user %></td>
-		<td><%= link_to 'Edit',edit_user_path(user) %></td>
-	</tr>
-<% end %>
-</table>
-<br />
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>index</title>
+  <%= stylesheet_link_tag 'login-box' %>
+</head>
+
+<body>
+<div class="users-form">
+<div id="index-view">
+<H2><%= flash[:notice] %></H2>
+	<h1>All Users</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+		</tr>
+		<% for user in @user %>
+		<tr>
+			<td><%=h user.login %></td>
+			<td><%= link_to 'Show', user %></td>
+			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+		</tr>
+		<% end %>
+	</table>
+	<br />
+
+<%= link_to 'New User', new_user_path %>
+</div>
+</div>
+</body>
+</html>
