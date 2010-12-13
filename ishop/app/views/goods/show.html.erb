@@ -1,0 +1,31 @@
+<table>
+ <tr>
+      <th>Название:</th>
+      <td><%= @good.name %></td>
+    </tr>
+    <tr>
+      <th>Размеры:</th>
+      <td>
+        <%= @good.size_x %> мм X
+        <%= @good.size_y %> мм X
+        <%= @good.size_z %> мм
+      </td>
+    </tr>
+    <tr>
+      <th>Вес:</th>
+      <td><%= @good.weight %> кг</td>
+    </tr>
+    <tr>
+      <th>Цена:</th>
+      <td><%= @good.price %> руб</td>
+    </tr>
+    <tr>
+      <th>Описание:</th>
+      <td><%= @good.about %></td>
+    </tr>
+  </tr>
+</table>
+
+<%= link_to 'Удалить', @good, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Изменить', edit_good_path(@good) %> |
+<%= link_to 'Назад к списку', goods_path %>

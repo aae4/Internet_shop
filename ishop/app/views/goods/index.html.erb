@@ -1,0 +1,20 @@
+<h1>Список товаров</h1>
+
+<table>
+  <tr>
+  <th>Название</th>
+  </tr>
+
+<% for good in @goods %>
+  <tr>
+    <td><%=h good.name %></td>
+    <td><%= link_to 'Подробнее', good %></td>
+    <td><%= link_to 'Изменить', edit_good_path(good) %></td>
+    <td><%= link_to 'Удалить', good, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Новый товар', new_good_path %>

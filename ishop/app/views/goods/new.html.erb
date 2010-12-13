@@ -1,0 +1,44 @@
+<div class="goods-form">
+<% form_for(@good) do |f| %>
+  <%= f.error_messages %>
+<fieldset>
+<h1>Новый товар</h1>
+	<div>
+		<%= f.label :name %>:
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :size_x %>:
+		<%= f.text_field :size_x %>
+	</div>
+	<div>
+		<%= f.label :size_y %>:
+		<%= f.text_field :size_y %>
+	</div>
+	<div>
+		<%= f.label :size_z %>:
+		<%= f.text_field :size_z %>
+	</div>
+		<div>
+		<%= f.label :weight %>:
+		<%= f.text_field :weight %>
+	</div>
+	<div>
+		<%= f.label :price %>:
+		<%= f.text_field :price %>
+	</div>
+	<div>
+		<%= f.label :about %>:
+		<%= f.text_field :about %>
+	</div>
+	<div>
+		<%= f.submit "Создать товар", :class => "submit" %>
+	</div>
+	
+	<div>
+	<%= link_to 'Back', goods_path %>
+	</div>
+</fieldset>
+
+<% end %>
+</div>
