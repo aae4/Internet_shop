@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213192200) do
+ActiveRecord::Schema.define(:version => 20101214190414) do
+
+  create_table "catalogs", :force => true do |t|
+    t.text     "name",       :null => false
+    t.text     "about"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "goods", :force => true do |t|
     t.text     "name",       :null => false
@@ -26,6 +33,12 @@ ActiveRecord::Schema.define(:version => 20101213192200) do
     t.datetime "updated_at"
   end
 
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "premissions", :force => true do |t|
     t.integer  "role_id",    :null => false
     t.integer  "user_id",    :null => false
@@ -37,6 +50,12 @@ ActiveRecord::Schema.define(:version => 20101213192200) do
   create_table "roles", :force => true do |t|
     t.string   "role_name"
     t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trashes", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

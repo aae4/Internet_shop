@@ -16,4 +16,7 @@ class Good < ActiveRecord::Base
    validates_numericality_of :price, :allow_nil => true, 
     :less_than => 10000, :greater_than => 0,
     :message => 'Цена должна быть положительным числом'
+    
+    belongs_to :catalog
+    
 end

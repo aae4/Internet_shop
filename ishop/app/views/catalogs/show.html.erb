@@ -1,3 +1,18 @@
+<table>
+ <tr>
+      <th>Название каталога:</th>
+      <td><%= @catalog.name %></td>
+    </tr>    
+    <tr>
+      <th>Описание:</th>
+      <td><%= @catalog.about %></td>
+    </tr>
+    <tr>
+      <th>Товары:</th>
+      <td><%= goods_list('catalog[id]', @catalog.id) %></td>
+    </tr>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_catalog_path(@catalog) %> |
 <%= link_to 'Back', catalogs_path %>

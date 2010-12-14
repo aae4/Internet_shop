@@ -32,6 +32,18 @@
 		<%= f.label :about %>:
 		<%= f.text_field :about %>
 	</div>
+	<div>
+		<%= f.label :quant %>:
+		<%= f.text_field :quant %>
+	</div>
+	<div>
+		<%= f.label :provider %>:
+		<%= f.text_field :provider %>
+	</div>
+	<div>
+		<%= f.label :catalog_id %>:
+		<%= catalogs_list('good[catalog_id]') %>
+	</div>
   <p>
     <%= f.submit "Изменить товар" %>
   </p>
