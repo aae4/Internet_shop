@@ -1,10 +1,17 @@
-<h1>Editing catalog</h1>
+<h1>Редактирование каталога</h1>
 
 <% form_for(@catalog) do |f| %>
   <%= f.error_messages %>
-
+	<div>
+		<%= f.label :name %>:
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :about %>:
+		<%= f.text_field :about %>
+	</div>
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Изменить каталог" %>
   </p>
 <% end %>
 

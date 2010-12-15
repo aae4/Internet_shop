@@ -36,7 +36,7 @@ class CatalogsController < ApplicationController
   def edit
     @catalog = Catalog.find(params[:id])
   end
-
+ 
   # POST /catalogs
   # POST /catalogs.xml
   def create
