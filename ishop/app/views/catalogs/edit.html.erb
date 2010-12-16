@@ -1,0 +1,19 @@
+<h1>Редактирование каталога</h1>
+
+<% form_for(@catalog) do |f| %>
+  <%= f.error_messages %>
+	<div>
+		<%= f.label :name %>:
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :about %>:
+		<%= f.text_field :about %>
+	</div>
+  <p>
+    <%= f.submit "Изменить каталог" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @catalog %> |
+<%= link_to 'Back', catalogs_path %>

@@ -1,0 +1,20 @@
+<h1>Разделы товаров</h1>
+
+<table>
+  <tr>
+  <th>Название</th>
+  </tr>
+
+<% for catalog in @catalogs %>
+  <tr>
+    <td><%=h catalog.name %></td>
+    <td><%= link_to 'Подробнее', catalog %></td>
+    <td><%= link_to 'Изменить', edit_catalog_path(catalog) %></td>
+    <td><%= link_to 'Удалить', catalog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New catalog', new_catalog_path %>

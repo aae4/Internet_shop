@@ -1,0 +1,21 @@
+<table>
+ <tr>
+      <th><%= @catalog.name %></th>
+
+
+    <tr>
+      <th>Описание:</th>
+      <td><%= @catalog.about %></td>
+    </tr>
+    <tr>
+      <th>Товары:</th>
+     <% for good in goods_list(@catalog.id) %>
+			<tr>
+				<td><%= link_to good.name, good %></td>
+			</tr>
+			<% end %>
+    </tr>
+  </tr>
+</table>
+
+<%= link_to 'Редактировать', edit_catalog_path(@catalog) %> | <%= link_to 'Удалить', @catalog, :confirm => 'Are you sure?', :method => :delete %>
