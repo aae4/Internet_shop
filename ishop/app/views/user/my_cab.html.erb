@@ -1,0 +1,47 @@
+<div class="users-form">
+	<div class="users-form">
+		<div id="edit_view">
+
+  <% if session[:user] %>
+    <% form_for(@user) do |f| %>
+    <%= f.error_messages %>
+
+
+	<H2><%= flash[:notice] %></H2>
+    <% if @user.login=='admin' %>
+   	<%= link_to 'Logout', :controller => 'user', :action => 'logout' %> |
+	<%= link_to 'Users list', :controller => 'user', :action => 'index' %> |
+   	<%= link_to 'Main Page', :controller => 'main', :action => 'index' %>
+   	<p> Hi man! You logged in as <strong> <%= @user.login %> </strong>
+   <% else %>
+   	<%= link_to 'Logout', :controller => 'user', :action => 'logout' %> |
+   	<%= link_to 'Main Page', :controller => 'main', :action => 'index' %>
+   	<p> Hi man! You logged in as <strong> <%= @user.login %> </strong>
+   <% end %>
+	</p>
+	
+
+	<h3>Your Profile</h3>
+	<p><strong>User:</strong> <%=h @user.login %></p>
+	<p><strong>Email:</strong> <%=h @user.email %></p>
+	<p><strong>Gender:</strong> <%=h @user.gender %></p>
+	<p><strong>Birthday:</strong> <%=h "#{@user.bday}.#{@user.bmounth}.#{@user.byear}" %></p>
+	<p><strong>Joined on:</strong> <%= @user.created_at.to_s(:long) %></p>
+
+	<h3>Change Your Profile</h3>
+	<div id="login-box-name"> <%= f.label :login, params[:login] %>: </div>
+	<div id="login-box-field"> <%= f.text_field :login %></div>
+	<div id="login-box-name"> <%= f.label :email, params[:email] %>: </div>
+	<div id="login-box-field"> <%= f.text_field :email %></div>
+	<div style="margin-left:150px;"> <%= f.submit "Apply changes", :class => "submit" %> </div>
+
+    <% end %>
+
+  <% else -%>
+	<p>You need to log in before:
+	<%= link_to 'Login', :controller => 'user', :action => 'login' %> |
+	</p>
+  <% end -%>
+</div>
+</div>
+</div>

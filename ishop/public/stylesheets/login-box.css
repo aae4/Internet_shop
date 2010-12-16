@@ -3,30 +3,30 @@
 	width:1024px;
 	height: 768px;
 	padding: 5% 3% 0 10%;
-	color: #ebebeb;
+	color: #0000FF;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia.jpg);
+	/*background: url(images/cia.jpg);*/
 }
 
 #edit_view {
 	width:1024px;
 	height: 768px;
 	padding: 5% 3% 0 10%;
-	color: #ebebeb;
+	color: #0000FF;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia3.jpg);
+	/*background: url(images/cia3.jpg);*/
 }
 
 #index-view {
 	width:1024px;
 	height: 768px;
 	padding: 5% 3% 0 10%;
-	color: #ebebeb;
+	color: #0000FF;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia2.jpg) ;
+	/*background: url(images/cia2.jpg) ;*/
 }
 
 #new_view img {
@@ -40,14 +40,14 @@
 #new_view h3 {
 	padding:0;
 	margin:0;
-	color: #ebebeb;
+	color: #0000FF;
 	font: bold 44px "Calibri", Arial;
 }
 
 #index-box h3 {
 	padding:0;
 	margin:0;
-	color: #ebebeb;
+	color: #0000FF;
 	font: bold 44px "Calibri", Arial;
 }
 

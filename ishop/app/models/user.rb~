@@ -1,19 +1,17 @@
 class User < ActiveRecord::Base
-	has_many :permissions
-  	has_many :roles, :through => :premissions
-	validates_presence_of :login
-	validates_uniqueness_of :login
+	validates_presence_of :login, :email,:password
+	validates_length_of	:login, :within => 3..25
+	validates_length_of	:email, :within => 6..40
+	validates_uniqueness_of :login, :email, :case_sensivity => false
+	validates_format_of :email, :within => 
 	
 	attr_accessor :password_confirmation
 	validates_confirmation_of :password
 		
 
 	def self.auth(login, password)
-		user=self.find_by_login(login)
-		user
+	  find_by_login_and_password(login, password)
 	end
 
-	def has_role?(name)
-    		self.roles.find_by_login(login) ? true : false
-  	end
+	
 end

@@ -11,7 +11,7 @@
 <body>
 <div class="users-form">
 <div id="index-view">
-<%= flash[:notice] %>
+<H2><%= flash[:notice] %></H2>
 	<h1>All Users</h1>
 	<table>
 		<tr>
@@ -20,15 +20,17 @@
 		<% for user in @user %>
 		<tr>
 			<td><%=h user.login %></td>
-			<td><%= link_to 'Show', user %></td>
 			<td><%= link_to 'Edit', edit_user_path(user) %></td>
+			<td><%= link_to 'Delete', user, :confirm=>'Are you crazy???', :method => :delete %></td>
 		</tr>
 		<% end %>
 	</table>
 	<br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path %><br />
+<%= link_to 'Main page', :controller => 'main', :action => 'index' %>
 </div>
 </div>
 </body>
+<% end %>
 </html>

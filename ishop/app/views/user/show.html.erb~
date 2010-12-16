@@ -2,15 +2,4 @@
   <b>Login:</b>
   <%=h @user.login %>
 </p>
-<p>
-  <b>Login count:</b>
-  <%=h @user.login_count %>
-</p>
-<p>
-  <b>created at:</b>
-  <%=h @user.created_at%>
-</p>
-<p>
-  <b>Last login at:</b>
-  <%=h @user.last_login_at%>
-</p>
+

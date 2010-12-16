@@ -13,8 +13,8 @@
 		<% form_for(@user) do |f| %>
 			<%= f.error_messages %>
 
-		<div id="new_view">
-		
+		<div id="edit_view">
+<H2><%= flash[:notice] %></H2>
 		<H1>Edit account information</H1>
 Crazy LJ Style 
 <br />
@@ -22,6 +22,8 @@ Crazy LJ Style
 
 	<div id="login-box-name"> <%= f.label :login %>: </div>
 	<div id="login-box-field"> <%= f.text_field :login %></div>
+	<div id="login-box-name"> <%= f.label :email %>: </div>
+	<div id="login-box-field"> <%= f.text_field :email %></div>
 	<br />
 	<br />
 	<div style="margin-left:150px;"> <%= f.submit "Apply changes", :class => "submit" %> </div>

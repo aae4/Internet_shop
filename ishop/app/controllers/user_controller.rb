@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+       before_filter :authorize, :only => [:index, :destroy]
+
 
 	def index
 		@user=User.find(:all, :order => :login)
@@ -23,31 +25,60 @@ class UserController < ApplicationController
 	def create
 		@user=User.new(params[:user])
 		if @user.save
+			@user.created_at=Time.now
+			session[:user] = @user
 			flash[:notice] = "Hi #{@user.login}! Your account was successfully registered."
-			redirect_to(:action => 'index')
+			redirect_to(:action => 'my_cab')
 		else
+			flash[:notice] = "Incorrect data. Check the errors please"
 			render :action => "new"
 		end
 	end
 	
 	def update
 		@user=User.find(params[:id])
-		respond_to do |format| 
 			if @user.update_attributes(params[:user])
-				flash[:notice]="#{@user.login} data was updated"
-				format.html {redirect_to(:action => 'index')}
+				flash[:notice]="#{@user.login} data was updated."
+				render :action => "my_cab"
+				#redirect_to(:action => 'my_cab')
 			else
-				format.html {render :action => "edit"}
+				render :action => "edit"
 			end
-		end
 	end
 
-	def delete
+	def destroy
 		@user=User.find(params[:id])
-		@user.delete
+		@user.destroy
 		respond_to do |format|
-			redirect_to(users_url)
-		end
+			format.html { redirect_to(users_url) }
+    		end
+  	end
+	
+	def login
+	  if request.post?
+	    @user = User.auth(params[:login], params[:password])
+	    if @user
+		flash[:notice]="Login Success"
+	      	session[:user] = @user
+	      	redirect_to(:action => "my_cab" )
+	    else
+	      flash.now[:notice] = "Invalid user/password combination"
+	    end
+	  end
 	end
 
+	def logout
+		reset_session
+		flash[:notice] = "You have been logged out."
+		redirect_to(:controller => 'main',:action => 'index')
+	end
+
+	def my_cab
+		@user=session[:user]
+	end
+
+
+	def current_user
+	  @current_user ||=(session[:user] && User.find_by_id(session[:user])) || :false
+	end
 end

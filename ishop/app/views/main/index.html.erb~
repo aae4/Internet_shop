@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Hi man</title>
+  <%= stylesheet_link_tag 'login-box' %>
+</head>
+
+<body>
+<H2><%= flash[:notice] %></H2>
+<H1>Shubaduba!!!</H1>
+<br />
+<br />
+
+<div >
+<% if session[:user] %>
+	<p>
+	<%= link_to 'Logout', :controller => 'user', :action => 'logout' %><br />
+	<%= link_to 'Control Panel', :controller => 'user', :action => 'my_cab' %>
+<% else %>
+	<p>
+	Ready to log in?
+	<br/>
+	<%= link_to '» Click here to log in', :controller => 'user', :action => 'login' %>
+<% end %>
+</p>
+<p>
+Don't have an account?
+<br/>
+<%= link_to '» Click here to sign up', :controller => 'user', :action => 'new' %>
+</p>
+</div>
+</body>
+
+</html>

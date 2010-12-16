@@ -6,7 +6,7 @@
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia.jpg);
+	/*background: url(images/cia.jpg);*/
 }
 
 #edit_view {
@@ -16,7 +16,7 @@
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia.jpg);
+	/*background: url(images/cia3.jpg);*/
 }
 
 #index-view {
@@ -26,7 +26,7 @@
 	color: #ebebeb;
 	font: 12px Arial, Helvetica, sans-serif;
 	/*background: url(images/login-box-backg.png) no-repeat;*/
-	background: url(images/cia2.jpg) ;
+	/*background: url(images/cia2.jpg) ;*/
 }
 
 #new_view img {
