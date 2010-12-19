@@ -1,5 +1,5 @@
 class Good < ActiveRecord::Base
-  validates_presence_of :name,
+	  validates_presence_of :name,
     :message => 'Должно быть название товара'
   validates_numericality_of :size_x, :allow_nil => false, 
     :less_than => 10000, :greater_than => 0,
@@ -25,6 +25,5 @@ class Good < ActiveRecord::Base
     :message => 'Поставщик должен быть указан'
     
     belongs_to :catalog
-    
-    validates_associated :catalog
+    has_many :buys
 end

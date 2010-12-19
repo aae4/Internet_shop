@@ -1,21 +1,23 @@
 <table>
- <tr>
-      <th><%= @catalog.name %></th>
+	<tr><h1><%= @catalog.name %></h1> <i><%= @catalog.about %></i></tr>
+	<br />
+	<br />
+      <tr><th>Товары:</th><th>Описание:</th><th>Количество:</th></tr><br />
 
-
-    <tr>
-      <th>Описание:</th>
-      <td><%= @catalog.about %></td>
-    </tr>
-    <tr>
-      <th>Товары:</th>
      <% for good in goods_list(@catalog.id) %>
-			<tr>
-				<td><%= link_to good.name, good %></td>
-			</tr>
-			<% end %>
-    </tr>
-  </tr>
-</table>
+				<tr>
+					<td><%= link_to good.name, good %> </td>
+					
 
+					<td><%= good.about %></td><FORM ACTION="/buys/new" METHOD="GET">
+					<td><input type="hidden" NAME="goodid" value="<%= good.id %>"><input type="text"  size="5" NAME="qu" value="1"></td>
+					<td><input type="submit" value="Купить"> </td>
+					</form>
+				</tr>
+			<% end %>
+
+</table><br />
+<a href="javascript:history.back();">Назад</a>
+<% if session[:user]&&session[:user].login=="admin" %>
 <%= link_to 'Редактировать', edit_catalog_path(@catalog) %> | <%= link_to 'Удалить', @catalog, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>

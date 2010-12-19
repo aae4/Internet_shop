@@ -3,18 +3,27 @@
 <table>
   <tr>
   <th>Название</th>
+    <th>Описание</th>
+        <th>Цена</th>
+	<th>Количество</th>
   </tr>
 
 <% for good in @goods %>
   <tr>
-    <td><%=h good.name %></td>
-    <td><%= link_to 'Подробнее', good %></td>
+    <td><%= link_to good.name, good %></td>
+    <td><%= good.about %></td>
+	<td><%= good.price %> руб.</td><FORM ACTION="/buys/new" METHOD="GET">
+					<td><input type="hidden"  NAME="goodid" value="<%= good.id %>"><input size="5" type="text" NAME="qu" value="1"></td>
+					<td><input type="submit" value="Купить"> </td>
+					</form>
+    <% if session[:user]&&session[:user].login=="admin" %>
     <td><%= link_to 'Изменить', edit_good_path(good) %></td>
-    <td><%= link_to 'Удалить', good, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Удалить', good, :confirm => 'Are you sure?', :method => :delete %></td><% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
+<br /><a href="javascript:history.back();">Назад</a>
+<% if session[:user]&&session[:user].login=="admin" %>|
 <%= link_to 'Новый товар', new_good_path %>
+<% end %>

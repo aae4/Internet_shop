@@ -18,14 +18,22 @@ class ApplicationController < ActionController::Base
     @user
   end
 
-protected
-  def authorize
+	protected
+  def authorizeadm
     unless User.find_by_id(session[:user]) && (User.find_by_id(session[:user])).login=='admin'
-      flash[:notice] = "Please log in as Administrator"
+      flash[:notice] = "Доступ запрещен"
+      redirect_to :controller => 'user' , :action => 'login'
+    end
+  end
+   def authorizeusr
+    unless User.find_by_id(session[:user]) 
+      flash[:notice] = "Пожалуйста, авторизуйтесь"
       redirect_to :controller => 'user' , :action => 'login'
     end
   end
 
-
+def goods_list(s)
+Good.find(:all, :conditions => "catalog_id=#{s}")
+end
 
 end

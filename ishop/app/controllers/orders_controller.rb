@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+	before_filter :authorizeusr, :only => [:edit, :destroy, :new, :index, :show, :create, :update]
+	layout "main"
   # GET /orders
   # GET /orders.xml
   def index
@@ -75,7 +77,13 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.xml
   def destroy
     @order = Order.find(params[:id])
+    @buys=Buy.find(:all, :conditions => "order_id = #{params[:id]}")
+    for b in @buys
+	    b.destroy
+    end
+    
     @order.destroy
+    
 
     respond_to do |format|
       format.html { redirect_to(orders_url) }

@@ -1,6 +1,6 @@
 class UserController < ApplicationController
-       before_filter :authorize, :only => [:index, :destroy]
-
+       before_filter :authorizeadm, :only => [:index, :destroy]
+	layout "main"
 
 	def index
 		@user=User.find(:all, :order => :login)
@@ -81,4 +81,7 @@ class UserController < ApplicationController
 	def current_user
 	  @current_user ||=(session[:user] && User.find_by_id(session[:user])) || :false
 	end
+  
+
+
 end

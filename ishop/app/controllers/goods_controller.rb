@@ -1,8 +1,10 @@
 class GoodsController < ApplicationController
+	before_filter :authorizeadm, :only => [:edit, :destroy, :new, :update]
+	layout "main"
   # GET /goods
   # GET /goods.xml
   def index
-    @goods = Good.find(:all, :order => :name)
+    @goods = Good.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb

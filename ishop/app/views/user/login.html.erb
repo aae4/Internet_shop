@@ -1,34 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Login</title>
-  <%= stylesheet_link_tag 'login-box' %>
-</head>
-<body>
-		<div id="new_view">
-<H2><%= flash[:notice] %></H2>
-<H1>Log In</H1>
-Crazy LJ Style
-<br />
-<br />
-  <% form_tag do %>
+				<H1>Авторизация</H1>
+				<% form_tag do %>
+					<div id="login-box-name"> <label for="login">Имя пользователя:</label> </div>
+					<div id="login-box-field"> <%= text_field_tag :login, params[:login] %> </div>
+					<div id="login-box-name"> <label for="password">Пароль:</label>  </div>
+					<div id="login-box-field"> <%= password_field_tag :password, params[:password] %> </div>
+					<br />
+					<br />
+					<%= submit_tag "Вход" %> 
 
-       <div id="login-box-name"> <label for="login">Login:</label> </div>
-        <div id="login-box-field"> <%= text_field_tag :login, params[:login] %> </div>
-       <div id="login-box-name"> <label for="password">Password:</label>  </div>
-	<div id="login-box-field"> <%= password_field_tag :password, params[:password] %> </div>
-	<br />
-	<br />
-      <div style="margin-left:150px;"> <%= submit_tag "Login" %> </div>
-<br /> <br />
-	<%= link_to 'Register', :controller => 'user', :action => 'new' %> | 
-	<%= link_to 'Main Page', :controller => 'main', :action => 'index' %>
-
-
-</div>
-</body>
-<% end %>
-</div>
-</html>
+				<% end %>

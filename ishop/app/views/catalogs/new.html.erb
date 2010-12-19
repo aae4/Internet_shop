@@ -1,14 +1,13 @@
-<div class="catalogs-form">
+
 <% form_for(@catalog) do |f| %>
   <%= f.error_messages %>
-  <fieldset>
 <h1>Новый каталог</h1>
 	<div>
-		<%= f.label :name %>:
+		<%= f.label "Название" %>:
 		<%= f.text_field :name %>
 	</div>
 	<div>
-		<%= f.label :about %>:
+		<%= f.label "Информация" %>:
 		<%= f.text_field :about %>
 	</div>
 	<div>
@@ -16,9 +15,9 @@
 	</div>
 	
 	<div>
-	<%= link_to 'Back', catalogs_path %>
+	<%= link_to 'Отмена', @catalog %> |
+	<a href="javascript:history.back();">Назад</a>
 	</div>
-</fieldset>
 
 <% end %>
-</div>
+

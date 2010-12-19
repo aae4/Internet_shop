@@ -1,12 +1,25 @@
-<h1>Editing order</h1>
+	<% form_for(@order) do |f| %>
 
-<% form_for(@order) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+			<H1>Оформление заказа</H1>
+  <% if session[:user]&&session[:user].login=="admin" %>
+			<%= f.label "Статус" %>:
+				<%= f.radio_button :status, "0" %>
+				 <%= f.label "Преобразовать в корзину" %><br />
+				<%= f.radio_button :status, "1" %>
+				 <%= f.label "Проверка администратором" %><br />
+				<%= f.radio_button :status, "2" %>
+				<%= f.label  "Оплата, доставка" %><br />
+			<%= f.radio_button :status, "3" %>
+				<%= f.label  "Выполнен" %>				 <br />
+<% else %>
+	<%= f.hidden_field :status, :value => "1" %>
 <% end %>
+ <%= f.label "Контакты" %>: <%= f.text_field :contact %><br />
+<%= f.label "Дополнительная информация" %>:
+ <%= f.text_field :comment %>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+	<br />	<br />
+	<%= f.submit "Оформить", :class => "submit" %> </div>
+
+<% end %>
+<a href="javascript:history.back();">Назад</a>
