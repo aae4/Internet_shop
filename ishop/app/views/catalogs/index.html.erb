@@ -3,18 +3,22 @@
 <table>
   <tr>
   <th>Название</th>
+   <th>Описание</th>
   </tr>
 
 <% for catalog in @catalogs %>
   <tr>
-    <td><%=h catalog.name %></td>
-    <td><%= link_to 'Подробнее', catalog %></td>
-    <td><%= link_to 'Изменить', edit_catalog_path(catalog) %></td>
-    <td><%= link_to 'Удалить', catalog, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to catalog.name,  catalog%></td>
+    <td><%= catalog.about %></td>
+   <% if session[:user]&&session[:user].login=="admin" %>
+    <td><%= link_to 'Изменить',  edit_catalog_path(catalog) %></td>
+    <td><%=  link_to 'Удалить', catalog, :confirm => 'Are you sure?', :method => :delete %></td><% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New catalog', new_catalog_path %>
+<a href="javascript:history.back();">Назад</a>
+<% if session[:user]&&session[:user].login=="admin" %>|
+<%= link_to 'Новый каталог', new_catalog_path %>
+<% end %>

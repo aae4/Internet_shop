@@ -1,0 +1,12 @@
+<h1>Editing buy</h1>
+
+<% form_for(@buy) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @buy %> |
+<%= link_to 'Back', buys_path %>

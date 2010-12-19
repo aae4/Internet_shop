@@ -1,7 +1,5 @@
-<div class="goods-form">
 <% form_for(@good) do |f| %>
   <%= f.error_messages %>
-<fieldset>
 <h1>Новый товар</h1>
 	<div>
 		<%= f.label :name %>:
@@ -47,9 +45,8 @@
 	</div>
 	
 	<div>
-	<%= link_to 'Back', goods_path %>
+	<a href="javascript:history.back();">Назад</a>
 	</div>
-</fieldset>
 
 <% end %>
-</div>
+

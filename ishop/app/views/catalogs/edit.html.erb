@@ -3,11 +3,11 @@
 <% form_for(@catalog) do |f| %>
   <%= f.error_messages %>
 	<div>
-		<%= f.label :name %>:
+		<%= f.label "Название" %>:
 		<%= f.text_field :name %>
 	</div>
 	<div>
-		<%= f.label :about %>:
+		<%= f.label "Описание" %>:
 		<%= f.text_field :about %>
 	</div>
   <p>
@@ -15,5 +15,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @catalog %> |
-<%= link_to 'Back', catalogs_path %>
+<%= link_to 'Список каталогов', @catalog %> |
+<a href="javascript:history.back();">Назад</a>

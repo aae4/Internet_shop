@@ -1,36 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>index</title>
-  <%= stylesheet_link_tag 'login-box' %>
-</head>
-
-<body>
 <div class="users-form">
-<div id="index-view">
-<H2><%= flash[:notice] %></H2>
-	<h1>All Users</h1>
+	<h1>Все пользователи</h1>
 	<table>
 		<tr>
-			<th>Name</th>
+			<th>Имя</th>
 		</tr>
 		<% for user in @user %>
 		<tr>
+			<% if user.login != 'admin' %>
 			<td><%=h user.login %></td>
-			<td><%= link_to 'Edit', edit_user_path(user) %></td>
-			<td><%= link_to 'Delete', user, :confirm=>'Are you crazy???', :method => :delete %></td>
+			<td><%= link_to 'Редактировать', edit_user_path(user) %></td>
+			<td><%= link_to 'Удалить', user, :confirm=>'Are you crazy???', :method => :delete %></td>
+			<% end %>
 		</tr>
 		<% end %>
 	</table>
 	<br />
 
-<%= link_to 'New User', new_user_path %><br />
-<%= link_to 'Main page', :controller => 'main', :action => 'index' %>
+<%= link_to 'Новый пользователь', new_user_path %><br />
 </div>
-</div>
-</body>
-
-</html>
+<a href="javascript:history.back();">Назад</a>

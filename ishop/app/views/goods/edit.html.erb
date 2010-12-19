@@ -3,45 +3,45 @@
 <% form_for(@good) do |f| %>
   <%= f.error_messages %>
 	<div>
-		<%= f.label :name %>:
+		<%= f.label "Название" %>:
 		<%= f.text_field :name %>
 	</div>
 	<div>
-		<%= f.label :size_x %>:
+		<%= f.label "Ширина" %>:
 		<%= f.text_field :size_x %>
 	</div>
 	<div>
-		<%= f.label :size_y %>:
+		<%= f.label "Длина" %>:
 		<%= f.text_field :size_y %>
 	</div>
 	<div>
-		<%= f.label :size_z %>:
+		<%= f.label "Высота" %>:
 		<%= f.text_field :size_z %>
 	</div>
 		<div>
-		<%= f.label :weight %>:
+		<%= f.label "Вес" %>:
 		<%= f.text_field :weight %>
 	</div>
 	</div>
 	<div>
-		<%= f.label :price %>:
+		<%= f.label "Цена" %>:
 		<%= f.text_field :price %>
 	</div>
 	</div>
 		<div>
-		<%= f.label :about %>:
+		<%= f.label "Информация" %>:
 		<%= f.text_field :about %>
 	</div>
 	<div>
-		<%= f.label :quant %>:
+		<%= f.label "Количество" %>:
 		<%= f.text_field :quant %>
 	</div>
 	<div>
-		<%= f.label :provider %>:
+		<%= f.label "Производитель" %>:
 		<%= f.text_field :provider %>
 	</div>
 	<div>
-		<%= f.label :catalog_id %>:
+		<%= f.label "Каталог" %>:
 		<%= catalogs_select('good[catalog_id]') %>
 	</div>
   <p>
@@ -49,5 +49,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Показать', @good %> |
-<%= link_to 'Назад к списку', goods_path %>
+<%= link_to 'Список товаров', @good %> |
+<a href="javascript:history.back();">Назад</a>
+

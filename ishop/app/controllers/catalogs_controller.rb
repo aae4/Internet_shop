@@ -1,4 +1,6 @@
 class CatalogsController < ApplicationController
+	before_filter :authorizeadm, :only => [:edit, :destroy, :new, :update]
+	layout "main"
   # GET /catalogs
   # GET /catalogs.xml
   def index
@@ -36,7 +38,7 @@ class CatalogsController < ApplicationController
   def edit
     @catalog = Catalog.find(params[:id])
   end
- 
+
   # POST /catalogs
   # POST /catalogs.xml
   def create
@@ -61,7 +63,7 @@ class CatalogsController < ApplicationController
 
     respond_to do |format|
       if @catalog.update_attributes(params[:catalog])
-        flash[:notice] = 'Catalog was successfully updated.'
+        flash[:notice] = 'Каталог был успешно изменен'
         format.html { redirect_to(@catalog) }
         format.xml  { head :ok }
       else
@@ -75,11 +77,18 @@ class CatalogsController < ApplicationController
   # DELETE /catalogs/1.xml
   def destroy
     @catalog = Catalog.find(params[:id])
-    @catalog.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(catalogs_url) }
-      format.xml  { head :ok }
-    end
+    if goods_list(@catalog.id).size ==0
+	@catalog.destroy
+	respond_to do |format|
+		format.html { redirect_to(catalogs_url) }
+		format.xml  { head :ok }
+	end
+    else 
+	flash[:notice] = 'В каталоге есть товары.'
+	respond_to do |format|
+		format.html { render :action => "show" }
+		format.xml  { render :xml => @catalog.errors, :status => :unprocessable_entity }
+	end
   end
+end
 end

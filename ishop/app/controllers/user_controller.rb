@@ -1,6 +1,6 @@
 class UserController < ApplicationController
-       before_filter :authorize, :only => [:index, :destroy]
-
+       before_filter :authorizeadm, :only => [:index, :destroy]
+	layout "main"
 
 	def index
 		@user=User.find(:all, :order => :login)
@@ -58,9 +58,11 @@ class UserController < ApplicationController
 	  if request.post?
 	    @user = User.auth(params[:login], params[:password])
 	    if @user
-		flash[:notice]="Login Success"
 	      	session[:user] = @user
-	      	redirect_to(:action => "my_cab" )
+		uri = session[:original_uri]
+		session[:original_uri] = nil
+		flash[:notice]="Login Success"
+	      	redirect_to(uri || {:action => "my_cab"} )
 	    else
 	      flash.now[:notice] = "Invalid user/password combination"
 	    end
@@ -81,4 +83,7 @@ class UserController < ApplicationController
 	def current_user
 	  @current_user ||=(session[:user] && User.find_by_id(session[:user])) || :false
 	end
+  
+
+
 end

@@ -1,4 +1,4 @@
-<table>
+<fieldset><table>
  <tr>
       <th>Название:</th>
       <td><%= @good.name %></td>
@@ -27,17 +27,31 @@
       <th>Количество:</th>
       <td><%= @good.quant %></td>
     </tr>
+    <% if session[:user]&&session[:user].login=="admin" %>
         <tr>
     <th>Поставщик:</th>
       <td><%= @good.provider %></td>
     </tr>
+    <% end %>
    <tr>
       <th>Каталог:</th>
       <td><%= catalogs_id(@good.catalog_id)[0].name %></td>
     </tr>
   </tr>
+  <tr>
+	<th>Количество:</th>
+	<FORM ACTION="/buys/new" METHOD="GET">
+					<td><input type="hidden" NAME="goodid" value="<%= @good.id %>"><input type="text"  size="5" NAME="qu" value="1"></td>
+  </tr>
+  <tr>
+  	<td><input type="submit" value="Купить"> </td>
+	</form>
+</tr>
 </table>
 
+<a href="javascript:history.back();">Назад</a>
+<% if session[:user]&&session[:user].login=="admin" %>|
 <%= link_to 'Удалить', @good, :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Изменить', edit_good_path(@good) %> |
-<%= link_to 'Назад к списку', goods_path %>
+<% end %>
+</fieldset>

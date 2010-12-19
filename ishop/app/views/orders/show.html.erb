@@ -1,3 +1,23 @@
+<table>
+	<tr><h1>Заказ:</i></tr>
+	<br />
+	<br />
+<tr><td>Товар
+</td><td>Цена</td><td>Количество</td>
+</tr>
+     <% for buy in buys_list(@order.id) %>
+				<tr>
+					<td><%= link_to good_name(buy.good_id).name, good_path(buy.good_id) %></td><td><%= good_name(buy.good_id).price %> руб.</td><td><%= buy.quant %></td>
+					<td><%= link_to 'Удалить', buy, :confirm => 'Are you sure?', :method => :delete %></td>
+				</tr>
+			<% end %>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+</table><br />
+<% if @order.status==0 %>
+	<%= link_to 'Оформить заказ', edit_order_path(@order) %><br /><br />
+<% end %>
+<a href="javascript:history.back();">Назад</a>
+<% if session[:user]&&session[:user].login=="admin" %>
+<%= link_to 'Управление заказом', edit_order_path(@order) %> | <%= link_to 'Удалить', @order, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+
