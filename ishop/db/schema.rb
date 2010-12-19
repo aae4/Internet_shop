@@ -50,26 +50,6 @@ ActiveRecord::Schema.define(:version => 20101218162443) do
     t.datetime "updated_at"
   end
 
-  create_table "premissions", :force => true do |t|
-    t.integer  "role_id",    :null => false
-    t.integer  "user_id",    :null => false
-    t.integer  "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "role_name"
-    t.integer  "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_sessions", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
